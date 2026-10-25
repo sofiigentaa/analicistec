@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Icono } from "./Iconos";
-import { MARCA } from "@/lib/marca";
+import { MARCA, PROVEEDOR } from "@/lib/marca";
 
 /**
- * Encabezado común. En la versión de marca blanca muestra a la empresa que ofrece el servicio
- * ("Un servicio de …") con su logo y su contacto.
+ * Encabezado común: "Un servicio de tecnoros.ar". Si se configura una empresa (por ejemplo Tero Security),
+ * muestra su nombre o logo antes: "Tero Security · un servicio de tecnoros.ar".
  */
 export default function Encabezado({ enlazarInicio = false }: { enlazarInicio?: boolean }) {
   const logo = (
@@ -28,17 +28,22 @@ export default function Encabezado({ enlazarInicio = false }: { enlazarInicio?: 
         ) : (
           <span className="flex items-center gap-3">{logo}</span>
         )}
-        {MARCA.empresa && (
-          <span className="ml-auto flex items-center gap-2 text-sm text-ink-soft">
-            Un servicio de
-            {MARCA.logo ? (
+        <span className="ml-auto flex flex-wrap items-center justify-end gap-x-2 gap-y-1 text-sm text-ink-soft">
+          {MARCA.empresa &&
+            (MARCA.logo ? (
               // eslint-disable-next-line @next/next/no-img-element -- logo externo de la empresa cliente
               <img src={MARCA.logo} alt={MARCA.empresa} className="h-8 w-auto max-w-40 object-contain" />
             ) : (
               <span className="font-bold text-ink">{MARCA.empresa}</span>
-            )}
+            ))}
+          {MARCA.empresa && <span aria-hidden="true">·</span>}
+          <span>
+            {MARCA.empresa ? "un servicio de " : "Un servicio de "}
+            <a href={PROVEEDOR.url} target="_blank" rel="noopener noreferrer" className="font-bold text-brand-800 hover:underline">
+              {PROVEEDOR.nombre}
+            </a>
           </span>
-        )}
+        </span>
       </div>
     </header>
   );

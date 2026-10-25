@@ -16,6 +16,8 @@ export interface Marca {
 }
 
 export const URL_APP_PUBLICA = "https://antiestafa-ar-2.vercel.app";
+/** Quien presta el servicio y responde por él. */
+export const PROVEEDOR = { nombre: "tecnoros.ar", url: "https://tecnoros.ar" } as const;
 export const VENTAS_POR_DEFECTO = "https://tecnoros.ar";
 
 const limpio = (v: string | undefined) => (v ?? "").trim() || null;

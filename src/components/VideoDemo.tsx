@@ -9,7 +9,7 @@ export default function VideoDemo() {
       </video>
       <div className="flex flex-col gap-1 p-4 sm:p-5">
         <h2 id="video-titulo" className="titulo text-xl text-ink">
-          Mirá cómo se usa en 4 minutos
+          Mirá cómo se usa en 3 minutos
         </h2>
         <p className="text-ink-soft">Un recorrido por todo: revisar un mensaje, un link, un comprobante y un pedido de transferencia, qué hacer si caíste y Pandi. Tiene subtítulos.</p>
       </div>

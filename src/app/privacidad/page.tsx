@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Encabezado from "@/components/Encabezado";
 import PiePagina from "@/components/PiePagina";
-import { MARCA } from "@/lib/marca";
+import { MARCA, PROVEEDOR } from "@/lib/marca";
 
 export const metadata: Metadata = {
   title: "Privacidad y términos — AntiEstafa AR",
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function Privacidad() {
-  const responsable = MARCA.empresa ? `${MARCA.empresa}, junto con el equipo de AntiEstafa AR` : "el equipo de AntiEstafa AR";
+  const responsable = MARCA.empresa ? `${PROVEEDOR.nombre}, que presta este servicio para ${MARCA.empresa}` : PROVEEDOR.nombre;
   return (
     <>
       <Encabezado enlazarInicio />
@@ -37,7 +37,7 @@ export default function Privacidad() {
           <h2 className="titulo text-2xl text-ink">Condiciones de uso</h2>
           <ul className="flex list-disc flex-col gap-2 pl-6">
             <li>El servicio es gratuito y orientativo. Puede equivocarse: no reemplaza a tu banco, a la policía ni a un abogado.</li>
-            <li>Si ya pagaste o pasaste datos, comunicate con tu banco por el número de tu tarjeta y hacé la denuncia.</li>
+            <li>Si ya pagaste o pasaste datos, llamá a tu banco (el teléfono de atención al cliente que está impreso atrás de tu tarjeta de débito o crédito, o en la app oficial de tu banco) y hacé la denuncia.</li>
             <li>No uses el servicio para revisar contenido de terceros sin su permiso ni para fines ilegales.</li>
             <li>Podemos cambiar o pausar funciones sin aviso para mantener el servicio funcionando.</li>
           </ul>
@@ -46,17 +46,11 @@ export default function Privacidad() {
         <section className="flex flex-col gap-3">
           <h2 className="titulo text-2xl text-ink">Responsable y contacto</h2>
           <p>
-            Responsable del servicio: {responsable}.
-            {MARCA.contacto && (
-              <>
-                {" "}
-                Para consultas,{" "}
-                <a href={MARCA.contacto} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-800 underline">
-                  escribinos
-                </a>
-                .
-              </>
-            )}
+            Responsable del servicio: {responsable}. Para consultas,{" "}
+            <a href={MARCA.contacto ?? PROVEEDOR.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-800 underline">
+              escribinos
+            </a>
+            .
           </p>
           <p className="text-base text-ink-mute">
             Podés ejercer tus derechos de acceso, rectificación y supresión según la Ley 25.326 de Protección de Datos Personales. La

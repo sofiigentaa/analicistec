@@ -8,7 +8,7 @@ export default function PiePagina() {
     <footer className="border-t border-line bg-white">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-5 text-sm text-ink-mute sm:px-6">
         <p>
-          Ante la duda, llamá a tu banco por el número que figura en tu tarjeta. Esta herramienta orienta, pero no reemplaza una denuncia ni el consejo de tu banco.
+          Ante la duda, no respondas y llamá a tu banco: usá el teléfono de atención al cliente que está impreso atrás de tu tarjeta de débito o crédito, o en la app oficial de tu banco. Nunca llames a un número que te pasaron por mensaje. Esta herramienta orienta, pero no reemplaza una denuncia ni el consejo de tu banco.
         </p>
         {MARCA.empresa && MARCA.contacto && (
           <p>

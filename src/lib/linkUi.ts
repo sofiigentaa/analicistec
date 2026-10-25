@@ -63,7 +63,7 @@ export function evaluarLink(link: ResultadoLink): EvaluacionLink {
       bajada: "No lo abras hasta confirmar por otro canal.",
       que_hacer: [
         "No lo abras todavía.",
-        "Confirmá por otro canal: escribí vos la dirección oficial en el navegador o llamá al número que figura en la web oficial o en tu tarjeta.",
+        "Confirmá por otro canal: escribí vos la dirección oficial en el navegador o llamá al teléfono que está impreso atrás de tu tarjeta.",
         "Si no lo esperabas, ignoralo.",
       ],
     },

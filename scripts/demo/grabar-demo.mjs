@@ -391,9 +391,9 @@ async function main() {
   await cartel("¿Dudas? Todo el manual está en «¿Cómo se usa?», también en PDF", 3000);
   await page.goto(`${URL_BASE}/empresas`, { waitUntil: "networkidle" });
   await espera(600);
-  await cartel("¿Tenés una empresa? Ofrecelo a tus clientes con tu marca", 3000);
-  await bajarHasta(page.getByRole("heading", { name: "Planes" }));
-  await cartel("App con tu marca, bot de WhatsApp y botón para tu web", 3000);
+  await cartel("¿Tenés una empresa? Ofrecelo a tus clientes con tu nombre. Un servicio de tecnoros.ar", 3200);
+  await bajarHasta(page.getByRole("heading", { name: "¿Cuánto cuesta?" }));
+  await cartel("Para tus clientes es gratis: la app con tu nombre y por WhatsApp", 3000);
   await cartel("AntiEstafa AR · antiestafa-ar-2.vercel.app", 3000);
   await sinCartel();
   // =================================================

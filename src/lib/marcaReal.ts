@@ -8,7 +8,7 @@ export interface ReglasMarca {
 const REGLAS_BANCO = [
   "Un banco nunca te pide la clave, el token ni el código por mensaje, llamada o WhatsApp.",
   "Nunca te pide que \"valides\" o \"desbloquees\" la cuenta desde un link que te llegó.",
-  "Si dudás, entrá a la app del banco que ya tenés instalada o llamá al número que figura en tu tarjeta.",
+  "Si dudás, entrá a la app del banco que ya tenés instalada o llamá al teléfono de atención que está impreso atrás de tu tarjeta.",
 ];
 
 const REGLAS_POR_MARCA: Record<string, string[]> = {

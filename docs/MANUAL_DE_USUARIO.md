@@ -4,7 +4,7 @@
 
 Entrá a **https://antiestafa-ar-2.vercel.app** desde el celular o la compu. Es gratis y no hace falta registrarse. Esta misma guía está dentro de la app: tocá **📘 ¿Cómo se usa?**.
 
-> **¿Preferís verlo?** En **¿Cómo se usa?** hay un **video de 4 minutos con subtítulos** que muestra todas las funciones. También se abre desde el inicio con **▶ Mirá el video de cómo se usa**.
+> **¿Preferís verlo?** En **¿Cómo se usa?** hay un **video de 3 minutos y medio con subtítulos** que muestra todas las funciones. También se abre desde el inicio con **▶ Mirá el video de cómo se usa**.
 
 ---
 
@@ -35,7 +35,8 @@ Entrá a **https://antiestafa-ar-2.vercel.app** desde el celular o la compu. Es 
 
 ## 1. Cómo está organizada la pantalla
 
-- **Arriba:** los botones **📘 ¿Cómo se usa?** (esta guía) y **📲 Instalar app**.
+- **Arriba de todo:** dice **Un servicio de tecnoros.ar**, la empresa que presta y responde por el servicio.
+- **Debajo:** los botones **📘 ¿Cómo se usa?** (esta guía) y **📲 Instalar app**.
 - **Qué querés revisar:** un recuadro con pestañas. Elegí la que corresponda a lo que te llegó:
 
 | Pestaña | Para qué sirve |
@@ -257,7 +258,7 @@ Con un solo toque:
 2. En la pantalla queda un **guion** con lo que tenés que decir: qué te llegó, cuándo, el link y qué te hizo sospechar.
 3. Si venís de un análisis, la **denuncia completa queda copiada**: si te la piden por WhatsApp o mail, la pegás.
 
-> La llamada no puede llevar la denuncia escrita: por eso te dejamos el guion para leerlo cuando te atienden. Si perdiste plata, llamá **también a tu banco** al número que figura atrás de tu tarjeta.
+> La llamada no puede llevar la denuncia escrita: por eso te dejamos el guion para leerlo cuando te atienden. Si perdiste plata, llamá **también a tu banco**: usá el teléfono de atención que está **impreso atrás de tu tarjeta** de débito o crédito, o el de la app oficial del banco.
 
 ## 19. Preguntas frecuentes
 

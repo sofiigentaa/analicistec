@@ -1,6 +1,6 @@
 # AntiEstafa AR · Guía de integración para tecnoros.ar
 
-Cómo instalar AntiEstafa AR para un cliente de tecnoros, con su marca, su bot de WhatsApp y el botón para su web. **Sin que nadie pague la IA**, salvo que el cliente quiera la clave paga.
+Cómo instalar AntiEstafa AR para un cliente de tecnoros, con su marca y su bot de WhatsApp. **Sin que nadie pague la IA**, salvo que el cliente quiera la clave paga.
 
 ---
 
@@ -9,7 +9,7 @@ Cómo instalar AntiEstafa AR para un cliente de tecnoros, con su marca, su bot d
 | Plan | Qué recibe el cliente | Quién paga la IA |
 |---|---|---|
 | **Comunidad** (gratis) | La app pública: antiestafa-ar-2.vercel.app | Nadie: clave gratuita + motor propio |
-| **Empresa** (abono) | La app con su marca, bot de WhatsApp, botón web y medidor de uso | Nadie: usa la clave **gratuita** del cliente + motor propio |
+| **Empresa** (abono) | La app con su marca, bot de WhatsApp y medidor de uso | Nadie: usa la clave **gratuita** del cliente + motor propio |
 | **Empresa + IA** (abono mayor) | Todo lo anterior, con IA sin cortes | El cliente, **dentro del abono**: la clave paga la compra el servicio y se cobra el consumo más un margen |
 
 **El servicio nunca se corta.** Si no hay clave, si se agota la cuota gratuita o si Google no responde, la app sigue funcionando con el **motor propio**: reglas de las estafas argentinas más el chequeo técnico de los links. Es más simple que la IA, y la app lo avisa.
@@ -48,19 +48,8 @@ La clave es del cliente: nunca va en el código ni en un mensaje.
 
 ---
 
-## 3. Botón "¿Es estafa?" en la web del cliente
 
-tecnoros agrega esta línea antes de `</body>` en la página del cliente:
-
-```html
-<script src="https://antiestafa-seguridad-sur.vercel.app/widget.js" defer></script>
-```
-
-Aparece un botón abajo a la izquierda que abre el detector en un panel, sin salir de la página. No lee nada de la página donde está.
-
----
-
-## 4. Bot de WhatsApp (API para bots)
+## 3. Bot de WhatsApp (API para bots)
 
 El bot de WhatsApp que arma tecnoros le manda el mensaje a la API y le contesta a la persona con `texto_whatsapp`.
 
@@ -108,7 +97,7 @@ También acepta `"imagen": "<base64>"` para capturas y `"audio": "<base64>"` par
 
 ---
 
-## 5. Vender la clave paga dentro del abono
+## 4. Vender la clave paga dentro del abono
 
 1. El servicio (tecnoros o el equipo) abre una cuenta de Google Cloud con facturación y crea una clave por cliente.
 2. Se carga esa clave en `GEMINI_API_KEY` del proyecto del cliente y se pone su tope en `ANTIESTAFA_API_CLIENTES`.
@@ -119,7 +108,7 @@ Si el cliente prefiere, puede traer su propia clave paga y pagarle a Google dire
 
 ---
 
-## 6. Qué falta para la próxima etapa
+## 5. Qué falta para la próxima etapa
 
 - **Plan Familia** (un familiar recibe aviso si la persona analiza una estafa): necesita cuentas y una base de datos.
 - **Panel de la empresa** con las estafas que circulan entre sus clientes (sin guardar mensajes).

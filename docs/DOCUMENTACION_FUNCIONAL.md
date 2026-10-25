@@ -119,7 +119,7 @@ AntiEstafa AR ayuda a cualquier persona a saber, en segundos, si un mensaje que 
 - **Limitación:** una llamada telefónica no transmite texto; la denuncia escrita se entrega aparte (WhatsApp, mail o en la comisaría). En "Ya caí" el guion es genérico para completar.
 
 ### RF-21 · Video "Cómo se usa"
-- En /ayuda hay un video de unos 4 minutos, con subtítulos en español y portada, que recorre todas las funciones. Se accede también desde el inicio ("▶ Mirá el video de cómo se usa").
+- En /ayuda hay un video de unos 3 minutos y medio, con subtítulos en español y portada, que recorre todas las funciones. Se accede también desde el inicio ("▶ Mirá el video de cómo se usa").
 - El video se genera automáticamente con un script de Playwright (`npm run demo:video`) que navega la app con cursor visible y carteles explicativos. Usa respuestas de ejemplo fijas para que la grabación sea siempre igual (opción `--real` para usar la IA). Se carga solo cuando el usuario lo reproduce.
 
 ### RF-22 · Motor propio sin IA (respaldo)
@@ -137,12 +137,10 @@ AntiEstafa AR ayuda a cualquier persona a saber, en segundos, si un mensaje que 
 ### RF-25 · Medidor de uso
 - Cuenta los análisis de cada cliente por mes (Upstash Redis si está configurado; si no, en memoria). Sirve para cobrar la clave paga y aplicar el tope.
 
-### RF-26 · Botón para webs (widget)
-- Una línea `<script src=".../widget.js">` agrega en cualquier página un botón "¿Es estafa?" que abre el detector en un panel (/widget), sin salir del sitio ni leer la página.
-
 ### RF-27 · Página "Para empresas" y "Privacidad y términos"
-- /empresas presenta canales, planes (Comunidad, Empresa, Empresa + IA), cómo se contrata y el código del botón web, con enlace a tecnoros.ar.
-- /privacidad explica qué se hace con lo que se pega, las condiciones de uso y el responsable del servicio.
+- /empresas presenta cómo les llega el servicio a los clientes (app con su nombre, WhatsApp), cuánto cuesta en lenguaje simple (gratis para los usuarios; la empresa elige "con la IA gratuita" o "con IA paga incluida") y cómo se contrata con tecnoros.ar.
+- /privacidad explica qué se hace con lo que se pega, las condiciones de uso y que el responsable del servicio es tecnoros.ar.
+- Todas las páginas dicen arriba "Un servicio de tecnoros.ar" (o "Empresa · un servicio de tecnoros.ar" si se configura una empresa, por ejemplo Tero Security).
 
 ### RF-28 · Revisar un audio
 - Pestaña "Audio": subir una nota de voz de WhatsApp (.opus/.ogg), MP3, M4A, WAV, WEBM o AMR (hasta 25 MB; se revisan los primeros 2 minutos), o grabar con el micrófono hasta 2 minutos (MediaRecorder, formato según el navegador). Se puede escuchar antes de enviar.

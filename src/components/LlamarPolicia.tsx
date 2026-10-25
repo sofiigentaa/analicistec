@@ -80,7 +80,7 @@ export default function LlamarPolicia({ datos }: { datos?: DatosDenuncia }) {
                 : "Si te piden la denuncia por escrito, generala más arriba y copiala."}
             </p>
           )}
-          <p className="text-sm text-ink-soft">Si perdiste plata, llamá también a tu banco al número que figura atrás de tu tarjeta.</p>
+          <p className="text-sm text-ink-soft">Si perdiste plata, llamá también a tu banco: usá el teléfono de atención al cliente que está impreso atrás de tu tarjeta de débito o crédito, o en la app oficial de tu banco.</p>
           {esTelefono && (
             <a href={TEL_POLICIA} className="btn btn-secondary">
               Volver a llamar al {NUMERO_POLICIA}

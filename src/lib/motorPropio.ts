@@ -129,7 +129,7 @@ export const REGLAS: Regla[] = [
     ],
     puntos: 45,
     bandera: "Dice llamar del banco o de “seguridad” por un movimiento raro. Es el engaño más común por teléfono.",
-    consejo: "Cortá. Llamá vos al banco al número que figura atrás de tu tarjeta.",
+    consejo: "Cortá. Llamá vos al banco al teléfono que está impreso atrás de tu tarjeta o en la app oficial del banco.",
   },
   {
     id: "pedido-plata",

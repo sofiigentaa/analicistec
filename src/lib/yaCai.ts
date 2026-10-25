@@ -24,7 +24,7 @@ export const CASOS_YA_CAI: CasoYaCai[] = [
     pasos: [
       {
         titulo: "Llamá a tu banco o billetera ahora",
-        detalle: "Usá el número que figura en tu tarjeta o en la app, no uno que te hayan pasado por mensaje. Contá que fue una estafa y pedí que intenten frenar o revertir la transferencia.",
+        detalle: "Usá el teléfono de atención que está impreso atrás de tu tarjeta de débito o crédito, o el de la app oficial del banco. Nunca uno que te hayan pasado por mensaje. Contá que fue una estafa y pedí que intenten frenar o revertir la transferencia.",
       },
       {
         titulo: "Pedí que reporten la cuenta de destino",
@@ -204,6 +204,6 @@ export function textoGuia(caso: CasoYaCai): string {
     "",
     ...todos.map((p, i) => `${i + 1}. ${p.titulo}\n   ${p.detalle}`),
     "",
-    "Armado con AntiEstafa AR. Ante la duda, llamá a tu banco por el número que figura en tu tarjeta.",
+    "Armado con AntiEstafa AR. Ante la duda, llamá a tu banco al teléfono que está impreso atrás de tu tarjeta.",
   ].join("\n");
 }
