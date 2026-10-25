@@ -14,7 +14,7 @@ export interface EvaluacionLink {
   links: { dominio: string }[];
 }
 
-export type RespuestaLink = EvaluacionLink & { link: ResultadoLink };
+export type RespuestaLink = EvaluacionLink & { link: ResultadoLink; avisoSeguridad?: boolean };
 
 type UrlNormalizada = { ok: true; url: string } | { ok: false; error: string };
 

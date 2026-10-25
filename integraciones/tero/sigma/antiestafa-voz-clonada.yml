@@ -1,0 +1,29 @@
+title: AntiEstafa - Estafa por audio o llamada (posible voz clonada)
+id: 8bea75a3-7e8e-45dd-9fca-5a6f2c24cf76
+status: experimental
+description: >
+  Un empleado revisó un audio o una llamada grabada y dio ESTAFA: alguien se hace pasar por un
+  directivo, un proveedor o el banco por voz (vishing). Hoy las voces se pueden imitar con IA.
+references:
+  - https://attack.mitre.org/techniques/T1566/004/
+author: Manuel A., María Sofía Genta (AntiEstafa AR · tecnoros.ar)
+date: 2026-10-25
+tags:
+  - attack.initial-access
+  - attack.t1566.004
+logsource:
+  product: antiestafa
+  service: analisis
+detection:
+  selection:
+    event.module: antiestafa
+    event.outcome: estafa
+    antiestafa.canal: audio
+  condition: selection
+fields:
+  - organization.id
+  - antiestafa.score
+  - antiestafa.banderas
+falsepositives:
+  - Audios legítimos de un familiar o compañero que pide un favor con apuro.
+level: critical

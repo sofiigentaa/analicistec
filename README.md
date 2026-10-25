@@ -74,6 +74,7 @@ Los mensajes son cada vez más creíbles (hoy también los escriben con IA) y lo
 - **Marca blanca:** cada cliente con su nombre, logo y contacto, configurado con variables de entorno.
 - **API para bots de WhatsApp** (`/api/v1/analizar`) con clave por cliente, tope mensual de IA y respuesta lista para WhatsApp.
 - **Medidor de uso** por cliente y por mes, para cobrar la clave paga dentro del abono.
+- **Conexión con TERO Security:** cuando un empleado detecta una estafa, se avisa al SIEM de TERO (evento ECS con MITRE T1566, sin mandar el texto) y el SOAR abre el caso. Reglas Sigma incluidas.
 - Páginas **Para empresas** (cuánto cuesta y cómo se contrata) y **Privacidad y términos**. Un servicio de **tecnoros.ar**.
 - 👉 Guía paso a paso: **[Integración con tecnoros.ar](docs/INTEGRACION_TECNOROS.md)**.
 
@@ -107,6 +108,7 @@ Usa respuestas de ejemplo fijas para que el video salga siempre igual. Opciones:
 ## Documentación
 
 - 📘 **[Manual de usuario](docs/MANUAL_DE_USUARIO.md):** cómo usar cada funcionalidad, paso a paso, y preguntas frecuentes.
+- 🛡️ **[AntiEstafa dentro de TERO Security](docs/INTEGRACION_TERO.md):** los empleados reportan estafas y TERO abre la alerta y el caso (SIEM, reglas Sigma T1566, SOAR).
 - 🏢 **[Integración con tecnoros.ar](docs/INTEGRACION_TECNOROS.md):** instalar la app para un cliente, bot de WhatsApp y cobro de la clave paga.
 - 📗 **[Documentación funcional](docs/DOCUMENTACION_FUNCIONAL.md):** usuarios, alcance, requisitos funcionales y no funcionales, flujos, mensajes del sistema y limitaciones.
 - 📄 **Versiones en PDF:** [Manual de usuario](public/docs/AntiEstafa-AR_Manual-de-usuario.pdf) · [Documentación funcional](public/docs/AntiEstafa-AR_Documentacion-funcional.pdf)

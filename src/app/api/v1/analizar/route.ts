@@ -1,4 +1,6 @@
+import { after } from "next/server";
 import { analizarConRespaldo } from "@/lib/analisisRespaldo";
+import { avisarATero } from "@/lib/tero";
 import { autenticar, leerClientes, textoParaWhatsApp } from "@/lib/apiClientes";
 import { EntradaError, leerEntrada } from "@/lib/entrada";
 import { GeminiError } from "@/lib/gemini";
@@ -42,6 +44,18 @@ export async function POST(request: Request) {
       entrada.texto ? verificarLinks(entrada.texto).catch(() => []) : Promise.resolve([]),
     ]);
     const final = combinarScore(analisis, links);
+    after(() =>
+      avisarATero({
+        veredicto: final.veredicto,
+        score: final.score,
+        banderas: final.banderas,
+        dominios: [...new Set(final.links.map((l) => l.dominio))],
+        canal: "bot",
+        sinIA: usoMotorPropio,
+        texto: entrada.texto,
+        transcripcion: final.transcripcion,
+      }),
+    );
     return Response.json({
       veredicto: final.veredicto,
       score: final.score,

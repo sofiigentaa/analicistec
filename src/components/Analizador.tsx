@@ -1,5 +1,6 @@
 "use client";
 
+import AvisoSeguridad from "./AvisoSeguridad";
 import { useEffect, useRef, useState } from "react";
 import type { AnalisisFinal } from "@/lib/score";
 import EjemplosRapidos from "./EjemplosRapidos";
@@ -16,7 +17,7 @@ import { guardarEntrada } from "./historialStore";
 import { textoParaLeer } from "@/lib/voz";
 import { generarAlerta, infoSemaforo, mensajeError, urlWhatsApp, validarImagenCliente } from "@/lib/ui";
 
-export type Resultado = AnalisisFinal & { modelo?: string; sinIA?: boolean };
+export type Resultado = AnalisisFinal & { modelo?: string; sinIA?: boolean; avisoSeguridad?: boolean };
 
 // Tonos suaves: el color acompaña, pero el veredicto siempre se dice también con palabras e ícono.
 export const TONOS = {
@@ -361,6 +362,8 @@ export function Veredicto({
         </div>
         <Medidor valor={resultado.score} trazo={tono.trazo} grande={modoAbuela} />
       </div>
+
+      {resultado.avisoSeguridad && <AvisoSeguridad />}
 
       {resultado.sinIA && (
         <p className="rounded-xl border border-line bg-paper px-4 py-3 text-sm text-ink-soft">

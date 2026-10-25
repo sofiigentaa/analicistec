@@ -1,0 +1,34 @@
+title: AntiEstafa - Estafa o phishing detectado por un empleado
+id: 7540ed35-08f0-4f7f-bfcd-27bcf2f86429
+status: experimental
+description: >
+  Un empleado revisó en AntiEstafa AR un mensaje, audio, link o QR y el resultado fue ESTAFA.
+  Indica un intento de phishing o fraude dirigido a la organización (WhatsApp, SMS, mail o llamada).
+references:
+  - https://attack.mitre.org/techniques/T1566/
+author: Manuel A., María Sofía Genta (AntiEstafa AR · tecnoros.ar)
+date: 2026-10-25
+tags:
+  - attack.initial-access
+  - attack.t1566
+  - attack.t1566.002
+  - attack.t1566.004
+  - attack.reconnaissance
+  - attack.t1598
+logsource:
+  product: antiestafa
+  service: analisis
+detection:
+  selection:
+    event.module: antiestafa
+    event.outcome: estafa
+  condition: selection
+fields:
+  - organization.id
+  - antiestafa.canal
+  - antiestafa.score
+  - antiestafa.dominios
+  - antiestafa.banderas
+falsepositives:
+  - Un mensaje legítimo que la IA o el motor propio marcaron como estafa por error.
+level: high

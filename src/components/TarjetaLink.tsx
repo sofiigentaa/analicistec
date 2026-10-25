@@ -6,6 +6,7 @@ import { infoSemaforo, urlWhatsApp } from "@/lib/ui";
 import { Medidor, TONOS } from "./Analizador";
 import DominioResaltado from "./DominioResaltado";
 import { Icono } from "./Iconos";
+import AvisoSeguridad from "./AvisoSeguridad";
 
 export default function TarjetaLink({ datos }: { datos: RespuestaLink }) {
   const tono = TONOS[infoSemaforo(datos.veredicto).luz];
@@ -35,6 +36,7 @@ export default function TarjetaLink({ datos }: { datos: RespuestaLink }) {
         </div>
         <Medidor valor={datos.score} trazo={tono.trazo} grande={false} />
       </div>
+      {datos.avisoSeguridad && <AvisoSeguridad />}
 
       <div className="rounded-2xl border border-brand-200 bg-brand-50 p-5">
         <h4 className="titulo mb-3 text-2xl text-brand-900">Qué hacer ahora</h4>

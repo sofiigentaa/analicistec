@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Encabezado from "@/components/Encabezado";
 import PiePagina from "@/components/PiePagina";
 import { MARCA, PROVEEDOR } from "@/lib/marca";
+import { CONFIG_TERO } from "@/lib/tero";
 
 export const metadata: Metadata = {
   title: "Privacidad y términos — AntiEstafa AR",
@@ -30,6 +31,15 @@ export default function Privacidad() {
             <li>Para revisar un link consultamos datos públicos del dominio (antigüedad y certificado). Nunca abrimos el link con tus datos.</li>
             <li>“Mis análisis” guarda los últimos resultados solo en tu dispositivo. Lo podés apagar y borrar cuando quieras.</li>
             <li>Para evitar abusos contamos cuántas consultas llegan desde cada dirección IP durante un minuto, sin guardarlas.</li>
+            {CONFIG_TERO && (
+              <li>
+                Esta versión es la de tu empresa: cuando algo da estafa o sospechoso, le avisamos a su equipo de seguridad (TERO Security) con el
+                resultado, las señales y los dominios de los links.{" "}
+                {CONFIG_TERO.incluirTexto
+                  ? "Tu empresa eligió recibir también el texto del mensaje o lo que dice el audio."
+                  : "No mandamos el texto del mensaje ni lo que dice el audio."}
+              </li>
+            )}
           </ul>
         </section>
 

@@ -162,6 +162,12 @@ AntiEstafa AR ayuda a cualquier persona a saber, en segundos, si un mensaje que 
 ### RF-31 · Practicá
 - Pestaña "Practicá" en "Más ayuda": quiz de mensajes reales y estafas (dominios ficticios .example). Después de cada respuesta explica por qué y "qué mirar". Al final muestra el nivel y permite compartir el resultado.
 
+### RF-32 · Conexión con TERO Security
+- Con `TERO_SIEM_URL` y `TERO_API_KEY` configurados, cada resultado "estafa" o "sospechoso" (mensaje, captura, audio, link, QR y bot) se manda al SIEM de TERO como evento tipo ECS, después de responderle al usuario (no lo demora ni le muestra errores).
+- El evento lleva veredicto, riesgo, canal, señales, dominios como indicadores, técnicas MITRE ATT&CK (T1566, T1566.002 link, T1566.004 voz, T1598 pedido de datos), organización y una huella del texto. El texto o la transcripción solo se mandan con `TERO_INCLUIR_TEXTO=true`.
+- El usuario ve "Le avisamos al equipo de seguridad de {empresa}" y la página de privacidad lo explica.
+- Incluye reglas Sigma (`integraciones/tero/sigma`), evento de ejemplo y `npm run tero:prueba` para probar la conexión. Guía: `docs/INTEGRACION_TERO.md`.
+
 ## 5. Flujos principales
 
 **Analizar un mensaje**

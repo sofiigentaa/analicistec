@@ -1,0 +1,85 @@
+{
+  "@timestamp": "2026-10-25T19:00:00.000Z",
+  "event": {
+    "kind": "alert",
+    "category": [
+      "threat"
+    ],
+    "type": [
+      "indicator"
+    ],
+    "module": "antiestafa",
+    "dataset": "antiestafa.analisis",
+    "provider": "AntiEstafa AR",
+    "severity": 92,
+    "outcome": "estafa"
+  },
+  "log": {
+    "level": "error"
+  },
+  "rule": {
+    "id": "antiestafa-estafa",
+    "name": "AntiEstafa: estafa detectada",
+    "category": "phishing"
+  },
+  "message": "AntiEstafa: estafa (riesgo 92/100) en mensaje · mercadopag0-seguridad.example",
+  "organization": {
+    "id": "acme-sa"
+  },
+  "threat": {
+    "framework": "MITRE ATT&CK",
+    "tactic": {
+      "id": "TA0001",
+      "name": "Initial Access"
+    },
+    "technique": [
+      {
+        "id": "T1566",
+        "name": "Phishing",
+        "subtechnique": [
+          {
+            "id": "T1566.002",
+            "name": "Spearphishing Link"
+          }
+        ]
+      },
+      {
+        "id": "T1598",
+        "name": "Phishing for Information"
+      }
+    ],
+    "indicator": [
+      {
+        "type": "domain-name",
+        "url": {
+          "domain": "mercadopag0-seguridad.example"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "antiestafa",
+    "attack.initial_access",
+    "attack.t1566",
+    "attack.t1566.002",
+    "attack.t1598"
+  ],
+  "labels": {
+    "producto": "AntiEstafa AR",
+    "proveedor": "tecnoros.ar"
+  },
+  "antiestafa": {
+    "veredicto": "estafa",
+    "score": 92,
+    "canal": "mensaje",
+    "banderas": [
+      "Imita a Mercado Pago",
+      "Te pide el código de verificación"
+    ],
+    "dominios": [
+      "mercadopag0-seguridad.example"
+    ],
+    "sin_ia": false,
+    "huella": "2d711642b726b044"
+  }
+}

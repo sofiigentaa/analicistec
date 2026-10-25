@@ -49,7 +49,7 @@ export default function EscanearQr() {
       const res = await fetch("/api/link", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ url: interpretado.url }),
+        body: JSON.stringify({ url: interpretado.url, origen: "qr" }),
       });
       const cuerpo: unknown = await res.json().catch(() => null);
       if (!res.ok) return setError(mensajeError(res.status, cuerpo));

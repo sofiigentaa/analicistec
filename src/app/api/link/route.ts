@@ -1,4 +1,6 @@
+import { after } from "next/server";
 import { verificarLink } from "@/lib/links";
+import { avisarATero, CONFIG_TERO, debeAvisar } from "@/lib/tero";
 import { evaluarLink, normalizarUrl, type RespuestaLink } from "@/lib/linkUi";
 import { crearLimitador, ipDe } from "@/lib/rateLimit";
 
@@ -29,7 +31,14 @@ export async function POST(request: Request) {
   try {
     const link = await verificarLink(url.url);
     const respuesta: RespuestaLink = { ...evaluarLink(link), link };
-    return Response.json(respuesta);
+    const avisoSeguridad = debeAvisar(respuesta.veredicto, CONFIG_TERO);
+    if (avisoSeguridad) {
+      const origen = (cuerpo as { origen?: unknown } | null)?.origen === "qr" ? "qr" : "link";
+      after(() =>
+        avisarATero({ veredicto: respuesta.veredicto, score: respuesta.score, banderas: respuesta.banderas, dominios: [link.dominio], canal: origen }),
+      );
+    }
+    return Response.json({ ...respuesta, avisoSeguridad });
   } catch (err) {
     console.error("Error en /api/link:", err);
     return Response.json({ error: "No pudimos revisar ese link. Probá de nuevo en un rato." }, { status: 500 });

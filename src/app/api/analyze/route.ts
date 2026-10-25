@@ -1,4 +1,6 @@
+import { after } from "next/server";
 import { GeminiError } from "@/lib/gemini";
+import { avisarATero, CONFIG_TERO, debeAvisar } from "@/lib/tero";
 import { analizarConRespaldo } from "@/lib/analisisRespaldo";
 import { EntradaError, leerEntrada } from "@/lib/entrada";
 import { verificarLinks, type ResultadoLink } from "@/lib/links";
@@ -33,7 +35,24 @@ export async function POST(request: Request) {
       medido("links", chequeoLinks),
     ]);
     console.info(`[analyze] gemini ${tiempos.gemini}ms, links ${tiempos.links}ms, total ${Date.now() - inicio}ms`);
-    return Response.json({ ...combinarScore(analisis, links), modelo, sinIA });
+    const final = combinarScore(analisis, links);
+    // Si la app está conectada a TERO Security, avisamos al equipo de seguridad después de responder.
+    const avisoSeguridad = debeAvisar(final.veredicto, CONFIG_TERO);
+    if (avisoSeguridad) {
+      after(() =>
+        avisarATero({
+          veredicto: final.veredicto,
+          score: final.score,
+          banderas: final.banderas,
+          dominios: [...new Set(final.links.map((l) => l.dominio))],
+          canal: entrada.audio ? "audio" : entrada.imagen && !entrada.texto ? "captura" : "mensaje",
+          sinIA,
+          texto: entrada.texto,
+          transcripcion: final.transcripcion,
+        }),
+      );
+    }
+    return Response.json({ ...final, modelo, sinIA, avisoSeguridad });
   } catch (err) {
     if (err instanceof EntradaError) {
       return Response.json({ error: err.message }, { status: err.status });
